@@ -1,0 +1,16 @@
+{
+  "metrics": {
+    "accuracy": 0.9136,
+    "top3": 0.975,
+    "macro_f1": 0.9136
+  },
+  "importance": {
+    "Relative humidity": 0.1974,
+    "Nitrogen": 0.1907,
+    "Rainfall": 0.1866,
+    "Phosphorus": 0.1648,
+    "Potassium": 0.121,
+    "Temperature": 0.09,
+    "Soil pH": 0.0496
+  }
+}

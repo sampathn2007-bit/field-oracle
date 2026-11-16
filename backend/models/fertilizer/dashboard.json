@@ -1,0 +1,19 @@
+{
+  "metrics": {
+    "accuracy": 0.9113,
+    "top3": 0.9726,
+    "macro_f1": 0.8542
+  },
+  "importance": {
+    "Phosphorus": 0.2101,
+    "Soil pH": 0.1259,
+    "Soil": 0.1228,
+    "Potassium": 0.1194,
+    "Soil carbon": 0.1186,
+    "Soil moisture": 0.1156,
+    "Nitrogen": 0.0863,
+    "Crop": 0.0485,
+    "Rainfall": 0.0298,
+    "Temperature": 0.0231
+  }
+}

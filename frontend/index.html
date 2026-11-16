@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Field Oracle · Agronomy analytics</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<style>
+#splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:env(safe-area-inset-top,0) 24px env(safe-area-inset-bottom,0);text-align:center;color:#eaf5ec;background:radial-gradient(120% 90% at 50% 0%,#1f4a33 0%,#112a1e 55%,#0b1a13 100%);transition:opacity .6s ease,visibility .6s ease;cursor:pointer}
+#splash.out{opacity:0;visibility:hidden}
+#splash .sp-mark{width:84px;height:84px;border-radius:24px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);box-shadow:0 0 0 0 rgba(120,200,140,.35);animation:sp-pulse 2.2s ease-out infinite}
+#splash .sp-mark svg{width:44px;height:44px;fill:none;stroke:#8fd9a4;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;animation:sp-sway 3.2s ease-in-out infinite;transform-origin:50% 90%}
+#splash h1{margin:6px 0 0;font:700 clamp(30px,6vw,44px)/1.1 Fraunces,Georgia,serif;letter-spacing:-.01em;opacity:0;animation:sp-up .8s .15s ease forwards}
+#splash p{margin:0;font:500 clamp(14px,2.4vw,16px)/1.5 Inter,system-ui,sans-serif;color:#b7d3bf;opacity:0;animation:sp-up .8s .35s ease forwards}
+#splash .sp-bar{width:min(240px,60vw);height:4px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:10px;opacity:0;animation:sp-up .6s .5s ease forwards}
+#splash .sp-bar i{display:block;height:100%;width:100%;border-radius:inherit;background:linear-gradient(90deg,#5fbf7f,#b8ec9c);transform:translateX(-100%);animation:sp-load 1.8s .5s cubic-bezier(.4,0,.2,1) forwards}
+#splash small{font:600 11px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7fa98c;opacity:0;animation:sp-up .6s .7s ease forwards}
+@keyframes sp-up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes sp-load{to{transform:translateX(0)}}
+@keyframes sp-sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes sp-pulse{0%{box-shadow:0 0 0 0 rgba(120,200,140,.35)}100%{box-shadow:0 0 0 28px rgba(120,200,140,0)}}
+@media (prefers-reduced-motion:reduce){#splash *{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div id="splash" role="status" aria-live="polite" aria-label="Loading Field Oracle">
+  <div class="sp-mark"><svg viewBox="0 0 24 24"><path d="M12 21v-9M12 12c0-4-2.6-6.5-7-6.5 0 4 2.6 6.5 7 6.5zM12 14.5c0-3.4 2.4-5.5 6.5-5.5 0 3.4-2.4 5.5-6.5 5.5z"/></svg></div>
+  <h1>Field Oracle</h1>
+  <p>Welcome. Preparing your agronomy insights…</p>
+  <div class="sp-bar"><i></i></div>
+  <small>Crop · Fertilizer · Yield</small>
+</div>
+<div class="app">
+  <aside class="side">
+    <div class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 21v-9M12 12c0-4-2.6-6.5-7-6.5 0 4 2.6 6.5 7 6.5zM12 14.5c0-3.4 2.4-5.5 6.5-5.5 0 3.4-2.4 5.5-6.5 5.5z"/></svg></span>
+      <span><b>Field Oracle</b><small>Agronomy analytics</small></span>
+    </div>
+    <nav id="nav" aria-label="Main"></nav>
+    <div class="side-foot">
+      <div class="status" id="status"></div>
+      <button class="ghost" id="theme" type="button"></button>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="demo-strip" id="demo"></div>
+    <header class="top"><div><p class="crumb" id="crumb"></p><h1 id="title"></h1></div><div class="actions" id="actions"></div></header>
+    <div id="view" tabindex="-1"></div>
+  </div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+<script>
+(() => {
+  const s = document.getElementById("splash"); if (!s) return;
+  const t0 = performance.now(); let done = false;
+  const hide = () => { if (done) return; done = true; s.classList.add("out"); setTimeout(() => s.remove(), 700); };
+  const go = () => setTimeout(hide, Math.max(0, 2000 - (performance.now() - t0)));
+  document.readyState === "complete" ? go() : window.addEventListener("load", go);
+  s.addEventListener("click", hide);
+})();
+</script>
+</body>
+</html>

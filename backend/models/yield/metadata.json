@@ -1,0 +1,206 @@
+{
+  "module": "yield",
+  "model_file": "model.joblib",
+  "trained_on": "crop_yield_dataset_noisy.csv",
+  "created": "2026-10-25T08:51:41+00:00",
+  "features": [
+    {
+      "name": "Soil_pH",
+      "type": "numeric",
+      "min": 5.5,
+      "max": 8.0,
+      "median": 6.4993
+    },
+    {
+      "name": "Temperature",
+      "type": "numeric",
+      "min": -3.5402,
+      "max": 54.1489,
+      "median": 22.9024
+    },
+    {
+      "name": "Humidity",
+      "type": "numeric",
+      "min": 46.3253,
+      "max": 80.0,
+      "median": 77.1118
+    },
+    {
+      "name": "Wind_Speed",
+      "type": "numeric",
+      "min": 0.0,
+      "max": 22.6061,
+      "median": 9.9969
+    },
+    {
+      "name": "N",
+      "type": "numeric",
+      "min": 45.0,
+      "max": 91.0,
+      "median": 65.2874
+    },
+    {
+      "name": "P",
+      "type": "numeric",
+      "min": 36.0,
+      "max": 72.0,
+      "median": 53.4545
+    },
+    {
+      "name": "K",
+      "type": "numeric",
+      "min": 27.0,
+      "max": 60.0,
+      "median": 41.4521
+    },
+    {
+      "name": "Year",
+      "type": "numeric",
+      "min": 2014.0,
+      "max": 2021.0,
+      "median": 2017.0
+    },
+    {
+      "name": "Month_Sin",
+      "type": "numeric",
+      "min": -1.0,
+      "max": 1.0,
+      "median": -0.0
+    },
+    {
+      "name": "Month_Cos",
+      "type": "numeric",
+      "min": -1.0,
+      "max": 1.0,
+      "median": -0.0
+    },
+    {
+      "name": "DayOfYear_Sin",
+      "type": "numeric",
+      "min": -1.0,
+      "max": 1.0,
+      "median": -0.0043
+    },
+    {
+      "name": "DayOfYear_Cos",
+      "type": "numeric",
+      "min": -1.0,
+      "max": 1.0,
+      "median": 0.0011
+    },
+    {
+      "name": "Crop_Type",
+      "type": "categorical",
+      "categories": [
+        "Barley",
+        "Corn",
+        "Cotton",
+        "Potato",
+        "Rice",
+        "Soybean",
+        "Sugarcane",
+        "Sunflower",
+        "Tomato",
+        "Wheat"
+      ]
+    },
+    {
+      "name": "Soil_Type",
+      "type": "categorical",
+      "categories": [
+        "Clay",
+        "Loamy",
+        "Peaty",
+        "Saline",
+        "Sandy"
+      ]
+    }
+  ],
+  "derived": [
+    "Year",
+    "Month_Sin",
+    "Month_Cos",
+    "DayOfYear_Sin",
+    "DayOfYear_Cos"
+  ],
+  "merge": {
+    "Season": [
+      "Month_Sin",
+      "Month_Cos",
+      "DayOfYear_Sin",
+      "DayOfYear_Cos"
+    ]
+  },
+  "n_trees": 200,
+  "metrics": {
+    "mae": 4.2692,
+    "rmse": 6.6011,
+    "r2": 0.9362,
+    "mae_nonzero": 5.9658,
+    "mae_zero": 0.3464,
+    "zero_share_test": 0.3019,
+    "n_train": 29210,
+    "n_test": 7310
+  },
+  "importance": [
+    {
+      "feature": "Humidity",
+      "importance": 0.4492
+    },
+    {
+      "feature": "Temperature",
+      "importance": 0.2383
+    },
+    {
+      "feature": "Crop_Type",
+      "importance": 0.1348
+    },
+    {
+      "feature": "Soil_Type",
+      "importance": 0.1075
+    },
+    {
+      "feature": "P",
+      "importance": 0.0243
+    },
+    {
+      "feature": "N",
+      "importance": 0.0129
+    },
+    {
+      "feature": "Season",
+      "importance": 0.0102
+    },
+    {
+      "feature": "Soil_pH",
+      "importance": 0.0095
+    },
+    {
+      "feature": "K",
+      "importance": 0.006
+    },
+    {
+      "feature": "Wind_Speed",
+      "importance": 0.0052
+    },
+    {
+      "feature": "Year",
+      "importance": 0.0022
+    }
+  ],
+  "versions": {
+    "python": "3.13.16",
+    "sklearn": "1.6.1",
+    "pandas": "2.2.3",
+    "numpy": "2.1.3"
+  },
+  "task": "regression",
+  "interval": {
+    "level": 0.8,
+    "source": "test-set residuals",
+    "q_low": -7.7263,
+    "q_high": 7.7319
+  },
+  "sweep_feature": "Temperature",
+  "crop_feature": "Crop_Type"
+}

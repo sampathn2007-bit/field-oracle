@@ -1,0 +1,20 @@
+{
+  "metrics": {
+    "r2": 0.9362,
+    "mae": 4.2692,
+    "rmse": 6.6011
+  },
+  "importance": {
+    "Relative humidity": 0.4492,
+    "Temperature": 0.2383,
+    "Crop type": 0.1348,
+    "Soil type": 0.1075,
+    "Phosphorus": 0.0243,
+    "Nitrogen": 0.0129,
+    "Season": 0.0102,
+    "Soil pH": 0.0095,
+    "Potassium": 0.006,
+    "Wind speed": 0.0052,
+    "Year": 0.0022
+  }
+}
